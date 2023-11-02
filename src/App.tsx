@@ -1,24 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+const students = [
+  {id:0, name: 'Al Gaddafy', uid: '011191212'},
+  {id:1, name: 'Atik Sahriare', uid: '011191235'}
+]
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 style={{ color: 'red' }}>Beginners Level.</h1>
+
+      <ul>
+        {students.map( items => (
+          <li key={items.id}> {items.uid +" - "+items.name} </li>
+          // <li>{items.id + items.name}</li>
+          // <li>{items.id} - {items.name}</li>
+        ))}
+      </ul>
+
+{/* ###############Error aste pare evabe dile################
+$$$$$tai object er vitor prottek ta element er moddhe id/key dite hobe tahole error show hobe na$$$$$$
+                          and the key or id filed should be unique
+
+react-jsx-dev-runtime.development.js:87 Warning: Each child in a list should have a unique "key" prop.
+Check the render method of `App`. See https://reactjs.org/link/warning-keys for more information.
+    at li
+    at App */}
+
+              {/* Jodi duplicate entry dite chai tahole evabe index kore korte pari */}
+
+      {/* <ul>
+        {students.map( (items,index) => (
+          <li key={items.id}> {items.uid +" - "+items.name} </li>
+        ))}
+      </ul> */}
+
+      {/* <ul>
+        {students.map( items => {
+          if we use {} second bracket in this case then we have to give a return type
+          return something
+        })}
+      </ul> */}
     </div>
   );
 }
