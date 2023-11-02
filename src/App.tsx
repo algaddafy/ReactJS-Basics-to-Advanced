@@ -1,9 +1,21 @@
-const students = [
-  {id:0, name: 'Al Gaddafy', uid: '011191212'},
-  {id:1, name: 'Atik Sahriare', uid: '011191235'}
-]
+// const students = [
+//   {id:0, name: 'Al Gaddafy', uid: '011191212'},
+//   {id:1, name: 'Atik Sahriare', uid: '011191235'}
+// ]
+
+import { useState } from "react";
 
 function App() {
+  const [students, setStudents] = useState([
+    {id:0, name: 'Student1', uid: '011191001'},
+    {id:1, name: 'Student2', uid: '011191002'}
+  ]);
+
+  function addStudents (){
+           //   [... spread operator]
+    // setStudents([...students,{id:1, name: 'Atik Sahriare', uid: '011191235'}])
+    setStudents(prevState =>[...prevState,{id:(prevState.length + 1), name: 'Student'+(prevState.length + 1), uid: '01119100'+(prevState.length + 1)}])
+  }
   return (
     <div>
       <h1 style={{ color: 'red' }}>Beginners Level.</h1>
@@ -15,6 +27,7 @@ function App() {
           // <li>{items.id} - {items.name}</li>
         ))}
       </ul>
+      <button onClick={addStudents}>Add Students</button>
 
 {/* ###############Error aste pare evabe dile################
 $$$$$tai object er vitor prottek ta element er moddhe id/key dite hobe tahole error show hobe na$$$$$$
