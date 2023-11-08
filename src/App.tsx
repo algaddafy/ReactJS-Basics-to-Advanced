@@ -3,13 +3,20 @@
 //   {id:1, name: 'Atik Sahriare', uid: '011191235'}
 // ]
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [students, setStudents] = useState([
     {id:0, name: 'Student1', uid: '011191001'},
     {id:1, name: 'Student2', uid: '011191002'}
   ]);
+
+  useEffect(() => {
+    fetch("http://localhost:8000/api/users")
+    .then(response => response.json())
+    // .then(data => setStudents(data))
+    .then(data => console.log(data));
+  }, [])
 
   function addStudents (){
            //   [... spread operator]
